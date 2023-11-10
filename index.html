@@ -14,6 +14,9 @@
           var openApp = confirm("Do you want to use the app?");
           if (openApp) {
             window.location.href = "https://apps.apple.com/us/app/my-health-at-vanderbilt/id1114939674"; // Replace with your iOS app link
+          } else {
+            window.location.href =
+            "https://myhealthatvanderbilt.com/Authentication/Login?"
           }
         }
         // Check if the user is using Android
@@ -22,7 +25,11 @@
           if (openApp) {
             window.location.href =
               "https://play.google.com/store/apps/details?id=com.ta.mhav&pcampaignid=web_share"; // Replace with your Android app link
+          } else {
+            window.location.href =
+            "https://myhealthatvanderbilt.com/Authentication/Login?"
           }
+          
         } else {
           window.location.href =
             "https://myhealthatvanderbilt.com/Authentication/Login?";
