@@ -5,26 +5,28 @@
 </head>
 <body>
     <script>
-        // Function to detect the user's device and redirect to the appropriate app store or app
-        function redirectToApp() {
+        // Function to detect the user's device and prompt to open the app
+        function promptToOpenApp() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
             // Check if the user is using iOS
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                window.location.href = "https://apps.apple.com/us/app/my-health-at-vanderbilt/id1114939674"; // Replace with your iOS app link
+                var openApp = confirm("Do you want to use the app?");
+                if (openApp) {
+                    window.location.href = "https://itunes.apple.com/app-link"; // Replace with your iOS app link
+                }
             }
             // Check if the user is using Android
             else if (/android/i.test(userAgent)) {
-                window.location.href = "https://play.google.com/store/apps/details?id=com.ta.mhav&pcampaignid=web_share"; // Replace with your Android app link
-            }
-            // If the device is not recognized, you can handle it accordingly
-            else {
-                window.location.href = "https://myhealthatvanderbilt.com/Authentication/Login?"; 
+                var openApp = confirm("Do you use the app?");
+                if (openApp) {
+                    window.location.href = "https://play.google.com/store/apps/details?id=your.package.name"; // Replace with your Android app link
+                }
             }
         }
 
-        // Call the function when the page loads or based on user interaction
-        redirectToApp();
+        // Call the function when the page loads
+        promptToOpenApp();
     </script>
 </body>
 </html>
