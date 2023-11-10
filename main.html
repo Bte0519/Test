@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MHAV Redirect</title>
+</head>
+<body>
+    <script>
+        // Function to detect the user's device and redirect to the appropriate app store or app
+        function redirectToApp() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // Check if the user is using iOS
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = "https://apps.apple.com/us/app/my-health-at-vanderbilt/id1114939674"; // Replace with your iOS app link
+            }
+            // Check if the user is using Android
+            else if (/android/i.test(userAgent)) {
+                window.location.href = "https://play.google.com/store/apps/details?id=com.ta.mhav&pcampaignid=web_share"; // Replace with your Android app link
+            }
+            // If the device is not recognized, you can handle it accordingly
+            else {
+                window.location.href = "https://myhealthatvanderbilt.com/Authentication/Login?"; 
+            }
+        }
+
+        // Call the function when the page loads or based on user interaction
+        redirectToApp();
+    </script>
+</body>
+</html>
